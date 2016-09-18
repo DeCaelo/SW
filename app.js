@@ -4,22 +4,15 @@ var app = express();
 
 app.set('view engine' ,'ejs');
 
-// Routes
-app.get('/', function(req, res) {
-  res.render("home", {
-    title : "Star Wars Movies"
-  });
-});
+var routes = require('./routes');
 
-app.get('/star_wars_episode/:eposide_number?', function(req, res) {
-  var eposide_number = req.params.eposide_number;
-  res.send("C'est la page de l'épisode " + eposide_number);
-});
+// Routes
+app.get('/', routes.home);
+
+app.get('/star_wars_episode/:eposide_number?', routes.movie_single);
 
 // error
-app.get('*', function(req, res) {
-  res.send("<h2>Cette page n'existe pas, tu es perdu ?</h2>");
-});
+app.get('*', routes.notFound);
 
 app.listen(3000, function() {
 
