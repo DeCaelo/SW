@@ -6,6 +6,10 @@ app.set('view engine' ,'ejs');
 
 var routes = require('./routes');
 
+// Access to image directory
+var path = require ('path');
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Routes
 app.get('/', routes.home);
 
