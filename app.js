@@ -6,7 +6,9 @@ app.set('view engine' ,'ejs');
 
 // Routes
 app.get('/', function(req, res) {
-  res.render("home");
+  res.render("home", {
+    title : "Star Wars Movies"
+  });
 });
 
 app.get('/star_wars_episode/:eposide_number?', function(req, res) {
