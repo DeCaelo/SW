@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes
 app.get('/', routes.home);
 
-app.get('/star_wars_episode/:eposide_number?', routes.movie_single);
+app.get('/star_wars_episode/:episode_number?', routes.movie_single);
 
 // error
 app.get('*', routes.notFound);
