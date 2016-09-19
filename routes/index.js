@@ -30,11 +30,19 @@ exports.movie_single = function(req, res) {
       main_characters : main_characters
     });
   } else {
-      res.send("<h2>page non valide !</h2>");
+      res.render('notFound', {
+        movies : movies,
+        title : "Page introuvable"
+      });
   }
 };
 
 // error
 exports.notFound = function(req, res) {
-  res.send("<h2>Cette page n'existe pas, tu es perdu ?</h2>");
+  var movies = moviesJSON.movies;
+
+  res.render('notFound', {
+    movies : movies,
+    title : "Page introuvable"
+  });
 };
